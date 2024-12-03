@@ -19,6 +19,7 @@ html,
 body {
     margin: 0;
     padding: 0;
+    height:100;
 }
 
 .nav ul {
@@ -310,10 +311,10 @@ body {
     font-size: 1.2em;
     margin-right: 25px;
 }
-.cart-row:last-child{
+.cart-rows:last-child{
     border-bottom: 1px solid black;
 }
-.cart-row:last-child .cart-column{
+.cart-rows:last-child .cart-column{
     border: none;
 }
 .cart-total{
@@ -338,6 +339,9 @@ body {
     font-size: 1.75em;
 }
 
+.cart-rows{
+    display:flex;
+}
 @media (max-width: 768px) {
     .nav ul {
         display: flex;
