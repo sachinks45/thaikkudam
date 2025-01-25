@@ -386,3 +386,33 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+
+/* Animation keyframe */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply the animation */
+.container, .tour-row, .main-footer {
+    animation: fadeIn 2s ease-in-out;
+}
+
+.btn {
+    background-color: #0065f4;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn:hover {
+    background-color: #555;
+    transform: scale(1.1);
+}

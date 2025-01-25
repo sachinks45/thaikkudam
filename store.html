@@ -8,6 +8,23 @@
     <link rel="icon" href="thai.jpg" type="image/jpeg">
     <title>Thaikkudam | Store</title>
     <script src="store.js" async></script>
+    <script>
+        document.querySelector('.btn-purchase').addEventListener('click', function () {
+            const totalElement = document.querySelector('.class-total-price');
+            const totalAmount = totalElement ? totalElement.innerText.replace('₹', '').trim() : null;
+    
+            if (!totalAmount || isNaN(totalAmount)) {
+                alert("Total amount is not valid.");
+                return;
+            }
+    
+            console.log("Total amount to be stored:", totalAmount); // Debugging step
+            localStorage.setItem('totalAmount', totalAmount);
+            window.location.href = 'pay.html'; // Redirect to the UPI Payment page
+        });
+    </script>
+    
+    
 </head>
 
 <body>

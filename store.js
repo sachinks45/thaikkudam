@@ -26,13 +26,30 @@ function ready() {
 }
 
 function purchaseClicked(event) {
-    alert('Thankyou for your purchase')
-    var cartItems=document.getElementsByClassName('cart-items')[0]
-    while(cartItems.hasChildNodes()){
-        cartItems.removeChild(cartItems.firstChild)
-        updateCartTotal()
+    var totalElement = document.getElementsByClassName('class-total-price')[0];
+    var totalAmount = totalElement.innerText.replace('₹', '').trim();
+
+    if (!totalAmount || isNaN(totalAmount) || parseFloat(totalAmount) <= 0) {
+        alert("Your cart is empty or total is invalid.");
+        return;
     }
+
+    // Store the total amount in localStorage
+    localStorage.setItem('totalAmount', totalAmount);
+
+    // Redirect to payment page
+    window.location.href = 'pay.html';
+
+    // Clear the cart
+    var cartItems = document.getElementsByClassName('cart-items')[0];
+    while (cartItems.hasChildNodes()) {
+        cartItems.removeChild(cartItems.firstChild);
+    }
+
+    // Update the total to 0
+    updateCartTotal();
 }
+
 
 function addToCartClicked(event) {
     var button = event.target
